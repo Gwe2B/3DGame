@@ -1,0 +1,14 @@
+[Title Screen]
+Play = Jouer
+Settings = Paramètres
+FullScreen = Plein écran
+Return = Retour
+QuitGame = Retour au Bureau
+
+[Control]
+Forward = Avancer
+Backward = Reculer
+Left = Gauche
+Right = Droite
+Pause = Pause
+Jump = Sauter
