@@ -1,58 +1,74 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-//[RequireComponent(typeof(PlayerInput))]
-public class InputManager : MonoBehaviour
+public class InputManager : MonoBehaviour, StandardControls.IGameplayActions
 {
-    [HideInInspector] public float MouseX;
-    [HideInInspector] public float MouseY;
-    [HideInInspector] public Vector2 moveValue;
-    [HideInInspector] public bool jump = false;
+    [SerializeField, Tooltip("Input Action Map asset for mouse/keyboard and game pad inputs")]
+    private StandardControls standardControls;
 
-    /*private InputAction mouseInput;
-    
-    public void OnEnable()
+    [SerializeField, Tooltip("Toggle the Cursor Lock Mode? Press ESCAPE during play mode to unlock")]
+    private bool cursorLocked = true;
+
+    public event Action JumpPressed;
+
+    public Vector2 moveInput { get; private set; }
+
+    public bool hasJumpInput { get; private set; }
+
+    protected void OnEnable()
     {
-        mouseInput.Enable();
-    }
 
-    public void OnDisable()
-    {
-        mouseInput.Disable();
-    }
-
-    private void Awake()
-    {
-        mouseInput = GetComponent<PlayerInput>().currentActionMap.FindAction("MouseDelta");
-
-        Debug.Log(mouseInput);
-        Debug.Log(mouseInput.enabled);
-        Debug.Log(mouseInput.performed);
-
-        mouseInput.performed += _ =>
+        if (standardControls == null)
         {
-            Vector2 value = _.ReadValue<Vector2>();
-            MouseX = value.x;
-            MouseY = value.y;
-        };
-    }*/
+            standardControls = new StandardControls();
+            standardControls.Gameplay.SetCallbacks(this);
+        }
+        standardControls.Gameplay.Enable();
 
-    public void OnMouseDelta(InputAction.CallbackContext context)
-    {
-        Debug.Log(context);
-        Debug.Log("Mouse movement");
+        //HandleCursorLock();
     }
 
-    public void OnMove(InputValue value)
+    protected void OnDisable()
     {
-        moveValue = value.Get<Vector2>();
+        standardControls.Disable();
     }
 
-    public void OnJump(InputValue value)
+    public void OnMouseLook(InputAction.CallbackContext context)
     {
-        if(value.isPressed) { jump = true; }
-        else { jump = false; }
+        Debug.Log("Mouse move");
     }
 
-    public void OnPause() { PauseManager.PM.TogglePause(); }
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            hasJumpInput = true;
+            if (JumpPressed != null)
+            {
+                JumpPressed();
+            }
+        }
+        else if (context.canceled)
+        {
+            hasJumpInput = false;
+        }
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            moveInput = context.ReadValue<Vector2>();
+        }
+        else if (context.canceled)
+        {
+            moveInput = Vector2.zero;
+        }
+    }
+
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        PauseManager.PM.TogglePause();
+    }
 }

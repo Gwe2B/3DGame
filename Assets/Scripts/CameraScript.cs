@@ -20,7 +20,7 @@ public class CameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float rotationX = horizontalSensitivity * inputManager.MouseX * Time.deltaTime;
+        /*float rotationX = horizontalSensitivity * inputManager.MouseX * Time.deltaTime;
         float rotationY = horizontalSensitivity * inputManager.MouseY * Time.deltaTime;
 
         inputManager.MouseX = 0;
@@ -31,6 +31,6 @@ public class CameraScript : MonoBehaviour
         cameraRotation.y -= rotationX;
 
         transform.rotation = Quaternion.Euler(cameraRotation);
-        transform.position = player.position + offset;
+        transform.position = player.position + offset;*/
     }
 }

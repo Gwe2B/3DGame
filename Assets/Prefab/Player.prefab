@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6458762788498149881}
   - component: {fileID: 6458762788498149862}
   - component: {fileID: 6458762788498149882}
-  - component: {fileID: 862104231}
   - component: {fileID: 862104230}
   - component: {fileID: 862104229}
   m_Layer: 0
@@ -115,36 +114,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &862104231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6458762788498149863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: c8c110fd5a1fafd4c9ceaa8813cc6df2, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Keyboard & Mouse
-  m_DefaultActionMap: Gameplay
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!114 &862104230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,10 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a582bf7ced647a14faf1324af6b3e1f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MouseX: 0
-  MouseY: 0
-  moveValue: {x: 0, y: 0}
-  jump: 0
+  cursorLocked: 1
 --- !u!114 &862104229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +141,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSensitivity: 30
   verticalSensitivity: 30
-  moveSpeed: 3
+  moveSpeed: 5
   jumpVelocity: 6
   fallMultiplier: 1.5
-  lowJumpMultiplier: 2

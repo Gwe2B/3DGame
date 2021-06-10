@@ -6,6 +6,14 @@
             "id": "18e1a3f8-03ef-42d6-8dac-98617846b8c5",
             "actions": [
                 {
+                    "name": "mouseLook",
+                    "type": "Value",
+                    "id": "ce37ae3e-3a92-4659-a162-0b0a847b741f",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "d8da4da2-1941-4893-82c4-a5af995f2a2b",
@@ -26,14 +34,6 @@
                     "type": "Button",
                     "id": "9d9e07ce-8f0b-4d29-87b5-89ca3f019bb7",
                     "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
-                    "name": "MouseDelta",
-                    "type": "Value",
-                    "id": "4cf424f6-a21f-4e8e-80cb-7d34345058ee",
-                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 }
@@ -118,12 +118,12 @@
                 },
                 {
                     "name": "",
-                    "id": "eccc1944-10ac-4119-9dcb-fcba141c20e9",
+                    "id": "56480006-bbcb-4351-a010-3b6e48a057bf",
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard & Mouse",
-                    "action": "MouseDelta",
+                    "groups": "",
+                    "action": "mouseLook",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

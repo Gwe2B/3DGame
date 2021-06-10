@@ -1904,6 +1904,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 172404697}
     m_Modifications:
+    - target: {fileID: 862104229, guid: fcb3a9a752ad71d4eb001a7a9e723eb0, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 862104230, guid: fcb3a9a752ad71d4eb001a7a9e723eb0, type: 3}
+      propertyPath: mouseInputRef
+      value: 
+      objectReference: {fileID: 7396130822649121969, guid: c8c110fd5a1fafd4c9ceaa8813cc6df2, type: 3}
+    - target: {fileID: 862104231, guid: fcb3a9a752ad71d4eb001a7a9e723eb0, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 862104231, guid: fcb3a9a752ad71d4eb001a7a9e723eb0, type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6458762788498149863, guid: fcb3a9a752ad71d4eb001a7a9e723eb0, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1952,7 +1968,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 862104231, guid: fcb3a9a752ad71d4eb001a7a9e723eb0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fcb3a9a752ad71d4eb001a7a9e723eb0, type: 3}
 --- !u!1001 &7336453526274095653
 PrefabInstance:
