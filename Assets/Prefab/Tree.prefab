@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: Tree Data
   m_EditorClassIdentifier: 
   _uniqueID: 405
-  materialHash: 1852ae82c7e1100286e0bd0258b9b451215482368
+  materialHash: 34637f6a4bcb8e407567abca3b3754d6215482368
   root:
     _uniqueID: 1
     seed: 1234
@@ -538,7 +538,7 @@ MonoBehaviour:
     childGroupIDs: 09000000
     lodQualityMultiplier: 1
     geometryMode: 0
-    materialBranch: {fileID: 2100000, guid: 7eaffc0faa0fae747946581d8f9980eb, type: 2}
+    materialBranch: {fileID: 2100000, guid: fc25394b5cad9df419e2ca06610a5908, type: 2}
     materialBreak: {fileID: 0}
     materialFrond: {fileID: 0}
     height: {x: 10, y: 15}
@@ -776,7 +776,7 @@ MonoBehaviour:
     childGroupIDs: 41000000
     lodQualityMultiplier: 1
     geometryMode: 0
-    materialBranch: {fileID: 2100000, guid: 7eaffc0faa0fae747946581d8f9980eb, type: 2}
+    materialBranch: {fileID: 2100000, guid: fc25394b5cad9df419e2ca06610a5908, type: 2}
     materialBreak: {fileID: 0}
     materialFrond: {fileID: 0}
     height: {x: 0.1, y: 5.1}
@@ -1014,7 +1014,7 @@ MonoBehaviour:
     parentGroupID: 9
     childGroupIDs: 
     geometryMode: 0
-    materialLeaf: {fileID: 2100000, guid: 1678d170cebc55c4c90bf541305cafd1, type: 2}
+    materialLeaf: {fileID: 2100000, guid: 7835e2bad63a3bf4f865819743b58851, type: 2}
     instanceMesh: {fileID: 0}
     size: {x: 0.9875817, y: 1.0496732}
     perpendicularAlign: 0

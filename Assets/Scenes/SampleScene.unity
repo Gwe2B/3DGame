@@ -1123,7 +1123,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: ac74f7b5f06b18e4e952a33083424985, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: dd15ba73570a364479d016ebab41a656, type: 2}
+      objectReference: {fileID: 2100000, guid: d9460abdfda13ca429bc2b1f27738579, type: 2}
     - target: {fileID: 919132149155446097, guid: ac74f7b5f06b18e4e952a33083424985, type: 3}
       propertyPath: m_Name
       value: CombatKnife
@@ -1443,7 +1443,7 @@ PrefabInstance:
     - target: {fileID: -6195767538593635260, guid: e122bfe0ff3b2b34e96eb822bf68dc33, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ca764617b9ba91d48bb49de67b454d7d, type: 2}
+      objectReference: {fileID: 2100000, guid: d879e3dbcb3a87a4cb10d44d264946e5, type: 2}
     - target: {fileID: 919132149155446097, guid: e122bfe0ff3b2b34e96eb822bf68dc33, type: 3}
       propertyPath: m_Name
       value: kerambit_knife
@@ -1907,6 +1907,14 @@ PrefabInstance:
     - target: {fileID: 862104229, guid: fcb3a9a752ad71d4eb001a7a9e723eb0, type: 3}
       propertyPath: moveSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 862104229, guid: fcb3a9a752ad71d4eb001a7a9e723eb0, type: 3}
+      propertyPath: inputManager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 862104230, guid: fcb3a9a752ad71d4eb001a7a9e723eb0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 862104230, guid: fcb3a9a752ad71d4eb001a7a9e723eb0, type: 3}
       propertyPath: mouseInputRef
