@@ -7,8 +7,6 @@ namespace Assets.Scripts.Inputs
 {
     public class InputManager : MonoBehaviour, StandardControls.IGameplayActions
     {
-        private static string jsonInputMapFile = "Assets/Resources/Config/Controls.json";
-
         [SerializeField, Tooltip("Input Action Map asset for mouse/keyboard and game pad inputs")]
         private StandardControls standardControls;
 
@@ -21,18 +19,12 @@ namespace Assets.Scripts.Inputs
 
         public bool hasJumpInput { get; private set; }
 
-        /*private void Start()
-        {
-            LoadControls();
-        }*/
-
         /// <summary>
         /// Enable the controls
         /// </summary>
         protected void OnEnable()
         {
-            string rebinds = PlayerPrefs.GetString("rebinds");
-            Debug.Log(rebinds);
+            string rebinds = PlayerPrefs.GetString("controls");
 
             if (standardControls == null)
             {
@@ -41,7 +33,7 @@ namespace Assets.Scripts.Inputs
             }
             standardControls.Gameplay.Enable();
 
-            standardControls.asset.LoadFromJson(rebinds);
+            standardControls.LoadBindingOverridesFromJson(rebinds);
 
             //HandleCursorLock();
         }
@@ -61,10 +53,10 @@ namespace Assets.Scripts.Inputs
         {
             string JSONDatas = standardControls.asset.ToJson();
 
-            if (File.Exists(jsonInputMapFile))
-            { File.Delete(jsonInputMapFile); }
+            if (File.Exists(FilesPath.jsonInputAsset))
+            { File.Delete(FilesPath.jsonInputAsset); }
 
-            var file = File.CreateText(jsonInputMapFile);
+            var file = File.CreateText(FilesPath.jsonInputAsset);
             file.WriteLine(JSONDatas);
             file.Close();
         }
@@ -74,17 +66,17 @@ namespace Assets.Scripts.Inputs
         /// </summary>
         public void LoadControls()
         {
-            if(File.Exists(jsonInputMapFile))
+            if(File.Exists(FilesPath.jsonInputAsset))
             {
                 string JSONDatas;
-                var file = File.OpenText(jsonInputMapFile);
+                var file = File.OpenText(FilesPath.jsonInputAsset);
                 JSONDatas = file.ReadToEnd();
                 file.Close();
 
                 standardControls.asset.LoadFromJson(JSONDatas);
             } else
             {
-                Debug.LogError($"Unable to find the Config file at {jsonInputMapFile}");
+                Debug.LogError($"Unable to find the Config file at {FilesPath.jsonInputAsset}");
             }
         }*/
 
