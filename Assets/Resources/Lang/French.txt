@@ -1,9 +1,12 @@
-[Title Screen]
+[UI]
 Play = Jouer
 Settings = Paramètres
 FullScreen = Plein écran
 Return = Retour
 QuitGame = Retour au Bureau
+Resume = Retour au jeu
+TitleScreen = Ecran Titre
+PauseTitle = Pause
 
 [Control]
 Forward = Avancer
