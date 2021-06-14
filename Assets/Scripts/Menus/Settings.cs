@@ -3,51 +3,52 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-using UnityEngine.InputSystem;
-
-public class Settings : MonoBehaviour
+namespace Assets.Scripts.UI
 {
-    public Toggle FullScreenToggle;
-    public Dropdown resolutionDropdown;
-    public Transform screen;
-
-    private Resolution[] resolutions;
-
-    private void Start()
+    public class Settings : MonoBehaviour
     {
-        // FullScreen initialization
-        FullScreenToggle.isOn = Screen.fullScreen;
+        public Toggle FullScreenToggle;
+        public Dropdown resolutionDropdown;
+        public Transform screen;
 
-        // Résolutions initialization
-        resolutions = Screen.resolutions;
+        private Resolution[] resolutions;
 
-        resolutionDropdown.ClearOptions();
-        List<string> options = new List<string>();
-
-        int currentResolutionIndex = 0;
-        for(int i = 0; i < resolutions.Length; i++)
+        private void Start()
         {
-            string option = resolutions[i].width + "x" + resolutions[i].height;
-            options.Add(option);
+            // FullScreen initialization
+            FullScreenToggle.isOn = Screen.fullScreen;
 
-            if (resolutions[i].Equals(Screen.currentResolution)) { currentResolutionIndex = i; }
+            // Résolutions initialization
+            resolutions = Screen.resolutions;
+
+            resolutionDropdown.ClearOptions();
+            List<string> options = new List<string>();
+
+            int currentResolutionIndex = 0;
+            for (int i = 0; i < resolutions.Length; i++)
+            {
+                string option = resolutions[i].width + "x" + resolutions[i].height;
+                options.Add(option);
+
+                if (resolutions[i].Equals(Screen.currentResolution)) { currentResolutionIndex = i; }
+            }
+
+            resolutionDropdown.AddOptions(options);
+            resolutionDropdown.value = currentResolutionIndex;
         }
 
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-    }
+        public void SetResolution(int index)
+        {
+            Resolution res = resolutions[index];
+            Screen.SetResolution(res.width, res.height, Screen.fullScreen);
+        }
 
-    public void SetResolution(int index)
-    {
-        Resolution res = resolutions[index];
-        Screen.SetResolution(res.width, res.height, Screen.fullScreen);
-    }
+        public void SetFullScreen(bool fullscreen) { Screen.fullScreen = fullscreen; }
 
-    public void SetFullScreen(bool fullscreen) { Screen.fullScreen = fullscreen; }
+        public void Return()
+        {
 
-    public void Return()
-    {
-        
-        SceneManager.LoadScene("TitleMenu");
+            SceneManager.LoadScene("TitleMenu");
+        }
     }
 }

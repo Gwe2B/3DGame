@@ -1,18 +1,23 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TitleScreen : MonoBehaviour
+namespace Assets.Scripts.UI
 {
-    public void Play() {
-        SceneManager.LoadScene("SampleScene");
-    }
-
-    public void Settings() {
-        SceneManager.LoadScene("SettingsMenu");
-    }
-
-    public void ExitGame()
+    public class TitleScreen : MonoBehaviour
     {
-        Application.Quit();
+        public void Play()
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
+
+        public void Settings()
+        {
+            SceneManager.LoadScene("SettingsMenu");
+        }
+
+        public void ExitGame()
+        {
+            Application.Quit();
+        }
     }
 }

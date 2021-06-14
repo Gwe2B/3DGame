@@ -3,7 +3,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Assets.Scripts.Inputs
+namespace Assets.Scripts.Managers
 {
     public class InputManager : MonoBehaviour, StandardControls.IGameplayActions
     {

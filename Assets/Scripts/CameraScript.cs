@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.Inputs;
+﻿using Assets.Scripts.Managers;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
