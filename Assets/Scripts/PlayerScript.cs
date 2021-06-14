@@ -1,33 +1,35 @@
+using Assets.Scripts.Inputs;
 using UnityEngine;
 
-[RequireComponent(typeof(InputManager))]
-public class PlayerScript : MonoBehaviour
+namespace Assets.Scripts.Player
 {
-    public float horizontalSensitivity = 30f;
-    public float verticalSensitivity = 30f;
-    public float moveSpeed = 5f;
-
-    [Range(1, 10)] public float jumpVelocity = 2f;
-    [Range(1, 10)] public float fallMultiplier = 2.5f;
-
-    private InputManager inputManager;
-    private new Rigidbody rigidbody;
-
-    private void Start()
+    public class PlayerScript : MonoBehaviour
     {
-        inputManager = GetComponent<InputManager>();
-        rigidbody = GetComponent<Rigidbody>();
-    }
+        public float horizontalSensitivity = 30f;
+        public float verticalSensitivity = 30f;
+        public float moveSpeed = 5f;
 
-    // Update is called once per frame
-    void Update()
-    {
+        [Range(1, 10)] public float jumpVelocity = 2f;
+        [Range(1, 10)] public float fallMultiplier = 2.5f;
 
-        if (inputManager.hasJumpInput && Mathf.Approximately(0, rigidbody.velocity.y))
-        { rigidbody.velocity = Vector3.up * jumpVelocity; }
-        else if (rigidbody.velocity.y < -0.1)
-        { rigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime; }
+        private InputManager inputManager;
+        private new Rigidbody rigidbody;
 
-        transform.Translate(new Vector3(inputManager.moveInput.x, 0, inputManager.moveInput.y) * moveSpeed * Time.deltaTime);
+        private void Start()
+        {
+            inputManager = GetComponent<InputManager>();
+            rigidbody = GetComponent<Rigidbody>();
+        }
+
+        void Update()
+        {
+
+            if (inputManager.hasJumpInput && Mathf.Approximately(0, rigidbody.velocity.y))
+            { rigidbody.velocity = Vector3.up * jumpVelocity; }
+            else if (rigidbody.velocity.y < -0.1)
+            { rigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime; }
+
+            transform.Translate(new Vector3(inputManager.moveInput.x, 0, inputManager.moveInput.y) * moveSpeed * Time.deltaTime);
+        }
     }
 }

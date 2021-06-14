@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+using UnityEngine.InputSystem;
+
 public class Settings : MonoBehaviour
 {
     public Toggle FullScreenToggle;
@@ -45,6 +47,7 @@ public class Settings : MonoBehaviour
 
     public void Return()
     {
+        
         SceneManager.LoadScene("TitleMenu");
     }
 }

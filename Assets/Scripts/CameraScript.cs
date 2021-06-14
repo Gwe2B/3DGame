@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Inputs;
+using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
 public class CameraScript : MonoBehaviour

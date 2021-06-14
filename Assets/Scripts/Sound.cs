@@ -1,23 +1,27 @@
 using UnityEngine;
 using UnityEngine.Audio;
- 
-[System.Serializable]
-public class Sound {
-    public AudioClip clip;
-    public AudioMixerGroup audioMixerGroup;
 
-    public string name;
+namespace Assets.Scripts.Audio
+{
+    [System.Serializable]
+    public class Sound
+    {
+        public AudioClip clip;
+        public AudioMixerGroup audioMixerGroup;
 
-    [Range(0f, 1f)]
-    public float volume;
+        public string name;
 
-    [Range(0f, 3f)]
-    public float pitch;
+        [Range(0f, 1f)]
+        public float volume;
 
-	// Play in loop?
-    public bool loop = false;
+        [Range(0f, 3f)]
+        public float pitch;
 
-	// The audio source clip
-    [HideInInspector]
-    public AudioSource source;
+        // Play in loop?
+        public bool loop = false;
+
+        // The audio source clip
+        [HideInInspector]
+        public AudioSource source;
+    }
 }
