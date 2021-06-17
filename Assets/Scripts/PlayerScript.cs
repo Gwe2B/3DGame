@@ -26,14 +26,25 @@ namespace Assets.Scripts.Player
         void Update()
         {
 
-            /*if (inputManager.hasJumpInput && Mathf.Approximately(0, rigidbody.velocity.y))
+            if (inputManager.hasJumpInput && Mathf.Approximately(0, rigidbody.velocity.y))
             { rigidbody.velocity = Vector3.up * jumpVelocity; }
             else if (rigidbody.velocity.y < -0.1)
-            { rigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime; }*/
-            if (inputManager.hasJumpInput)
-                animator.SetTrigger("SayHello");
+            { rigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime; }
+            /*if (inputManager.hasJumpInput)
+                animator.SetTrigger("SayHello");*/
 
-            transform.Translate(new Vector3(inputManager.moveInput.x, 0, inputManager.moveInput.y) * moveSpeed * Time.deltaTime);
+            Debug.Log(inputManager.moveInput);
+
+            if (inputManager.moveInput.x == 0 && inputManager.moveInput.y == 0)
+            {
+                animator.SetBool("Walk", false);
+            }
+            else
+            {
+                animator.SetBool("Walk", true);
+            }
+
+                //transform.Translate(new Vector3(inputManager.moveInput.x, 0, inputManager.moveInput.y) * moveSpeed * Time.deltaTime);
         }
     }
 }
