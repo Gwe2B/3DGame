@@ -1,10 +1,10 @@
-using Assets.Scripts.Managers;
+﻿using Assets.Scripts.Managers;
 using System;
 using UnityEngine;
 
 namespace Assets.Scripts.Player
 {
-    public class PlayerScript : MonoBehaviour
+    public class OldPlayerScript : MonoBehaviour
     {
         public float horizontalSensitivity = 30f;
         public float verticalSensitivity = 30f;
@@ -14,14 +14,12 @@ namespace Assets.Scripts.Player
         [Range(1, 10)] public float fallMultiplier = 2.5f;
 
         private InputManager inputManager;
-        private Animator animator;
         private new Rigidbody rigidbody;
 
         private void Start()
         {
             inputManager = GetComponent<InputManager>();
             rigidbody = GetComponent<Rigidbody>();
-            animator = GetComponent<Animator>();
         }
 
         void Update()
@@ -32,19 +30,7 @@ namespace Assets.Scripts.Player
             else if (rigidbody.velocity.y < -0.1)
             { rigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime; }
 
-            if (inputManager.moveInput.x == 0 && inputManager.moveInput.y == 0)
-            {
-                animator.SetBool("Walk", false);
-            }
-            else
-            {
-                double alphaAngle = (180 / Math.PI) * Mathf.Atan(inputManager.moveInput.x / inputManager.moveInput.y);
-                if (inputManager.moveInput.y < 0) alphaAngle += 180f;
-                
-                transform.rotation = Quaternion.Euler(new Vector3(0, (float)alphaAngle, 0));
-                animator.SetBool("Walk", true);
-            }
-            //transform.Translate(new Vector3(inputManager.moveInput.x, 0, inputManager.moveInput.y) * moveSpeed * Time.deltaTime);
+            transform.Translate(new Vector3(inputManager.moveInput.x, 0, inputManager.moveInput.y) * moveSpeed * Time.deltaTime);
         }
     }
 }
