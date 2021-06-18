@@ -27,10 +27,16 @@ namespace Assets.Scripts.Player
 
             if (inputManager.hasJumpInput && Mathf.Approximately(0, rigidbody.velocity.y))
             { rigidbody.velocity = Vector3.up * jumpVelocity; }
-            else if (rigidbody.velocity.y < -0.1)
-            { rigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime; }
+            else if (rigidbody.velocity.y < -0.1) {
+                rigidbody.velocity += Vector3.up * Physics.gravity.y *
+                    (fallMultiplier - 1) * Time.deltaTime;
+            }
 
-            transform.Translate(new Vector3(inputManager.moveInput.x, 0, inputManager.moveInput.y) * moveSpeed * Time.deltaTime);
+            transform.Translate(new Vector3(
+                inputManager.moveInput.x, 
+                0, 
+                inputManager.moveInput.y
+            ) * moveSpeed * Time.deltaTime);
         }
     }
 }
