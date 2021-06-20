@@ -25,6 +25,10 @@ namespace Assets.Scripts.Player.InventorySystem {
             itemList.Add(item);
         }
 
+        /// <summary>
+        /// itemList accessor.
+        /// </summary>
+        /// <returns>A List of Item objects</returns>
         public List<Item> GetItemList() {
             return itemList;
         }

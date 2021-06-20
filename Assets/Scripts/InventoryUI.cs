@@ -16,11 +16,18 @@ namespace Assets.Scripts.Player.InventorySystem {
             itemSlotTemplate = itemSlotContainer.Find("ItemSlotTemplate");
         }
 
+        /// <summary>
+        /// Inventory mutator.
+        /// </summary>
+        /// <param name="inventory">The inventory to display</param>
         public void SetInventory(Inventory inventory) {
             this.inventory = inventory;
             RefreshInventoryItems();
         }
 
+        /// <summary>
+        /// Update the invetory UI
+        /// </summary>
         private void RefreshInventoryItems() {
             int x = 0, y = 0;
 
