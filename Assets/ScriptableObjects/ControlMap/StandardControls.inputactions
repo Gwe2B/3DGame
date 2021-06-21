@@ -1,5 +1,5 @@
 {
-    "name": "DefaultControls",
+    "name": "StandardControls",
     "maps": [
         {
             "name": "Gameplay",
@@ -33,6 +33,14 @@
                     "name": "Pause",
                     "type": "Button",
                     "id": "9d9e07ce-8f0b-4d29-87b5-89ca3f019bb7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Sprint",
+                    "type": "Button",
+                    "id": "43998a11-1297-4741-a842-6d9dd986bf47",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -124,6 +132,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "mouseLook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "67c39e48-81f6-47ab-aed0-3187828cb9c6",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

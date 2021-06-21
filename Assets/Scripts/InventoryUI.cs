@@ -7,6 +7,8 @@ namespace Assets.Scripts.Player.InventorySystem {
         private const float X_OFFSET = 30f;
         private const float Y_OFFSET = -30f;
 
+        private const float SPACE = 8.33f;
+
         private Inventory inventory;
         private Transform itemSlotContainer;
         private Transform itemSlotTemplate;
@@ -32,12 +34,15 @@ namespace Assets.Scripts.Player.InventorySystem {
             int x = 0, y = 0;
 
             foreach(Item item in inventory.GetItemList()) {
+                /*float spacerX = (x > 0) ? SPACE : 0;
+                float spacerY = (y > 0) ? SPACE : 0;*/
+
                 RectTransform itemSlotRectTransform = 
                     Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
                 itemSlotRectTransform.gameObject.SetActive(true);
                 itemSlotRectTransform.anchoredPosition = new Vector2(
-                    x * SLOT_SIZE + X_OFFSET,
-                    y * SLOT_SIZE + Y_OFFSET
+                    x * SLOT_SIZE + X_OFFSET + SPACE * x,
+                    y * SLOT_SIZE + Y_OFFSET + SPACE * y
                 );
 
                 x++;

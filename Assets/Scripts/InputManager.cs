@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,6 +17,7 @@ namespace Assets.Scripts.Managers
         public Vector2 moveInput { get; private set; }
 
         public bool hasJumpInput { get; private set; }
+        public bool hasSprintInput { get; private set; }
 
         /// <summary>
         /// Enable the controls
@@ -124,6 +124,8 @@ namespace Assets.Scripts.Managers
             {
                 moveInput = Vector2.zero;
             }
+
+            Debug.Log(moveInput);
         }
 
         /// <summary>
@@ -133,6 +135,17 @@ namespace Assets.Scripts.Managers
         public void OnPause(InputAction.CallbackContext context)
         {
             PauseManager.PM.TogglePause();
+        }
+
+        public void OnSprint(InputAction.CallbackContext context) {
+            if (context.performed) {
+                hasSprintInput = true;
+                if (JumpPressed != null) {
+                    JumpPressed();
+                }
+            } else if (context.canceled) {
+                hasSprintInput = false;
+            }
         }
     }
 }

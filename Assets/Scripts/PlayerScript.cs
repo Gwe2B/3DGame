@@ -29,7 +29,7 @@ namespace Assets.Scripts.Player {
 
             // Create the player inventory and attach it the UI
             inventory = new Inventory();
-            inventoryUI.SetInventory(inventory);
+            //inventoryUI.SetInventory(inventory);
         }
 
         // Called once per frame
@@ -45,14 +45,20 @@ namespace Assets.Scripts.Player {
             if (inputManager.moveInput.x == 0 && inputManager.moveInput.y == 0) {
                 // No movements
                 animator.SetBool("Walk", false);
+                animator.SetBool("Sprint", false);
             } else {
+                Debug.Log("Hello");
                 double playerOrientation = (180 / Math.PI) * 
                     Mathf.Atan(inputManager.moveInput.x / inputManager.moveInput.y);
 
                 if (inputManager.moveInput.y < 0) playerOrientation += 180f;
                 
                 transform.rotation = Quaternion.Euler(new Vector3(0, (float)playerOrientation, 0));
+
                 animator.SetBool("Walk", true);
+                if (animator.GetBool("Sprint") != inputManager.hasSprintInput) {
+                    animator.SetBool("Sprint", inputManager.hasSprintInput);
+                }
             }
         }
     }
